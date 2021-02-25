@@ -22072,3 +22072,37 @@ puma (5.2.1) lib/puma/thread_pool.rb:337:in `with_force_shutdown'
 puma (5.2.1) lib/puma/request.rb:75:in `handle_request'
 puma (5.2.1) lib/puma/server.rb:431:in `process_client'
 puma (5.2.1) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE "alpha_blog_development" ENCODING = 'unicode'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE DATABASE "alpha_blog_test" ENCODING = 'unicode'[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4041121399170907065)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4041121399170907065)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-02-25 09:14:21 +0600
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | Allocations: 450)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_navigation.html.erb (Duration: 0.7ms | Allocations: 804)
+  Rendered layouts/_messages.html.erb (Duration: 0.2ms | Allocations: 246)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 108)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 9308)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 12456)
+
+
+Started GET "/" for ::1 at 2021-02-25 09:14:22 +0600
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.2ms | Allocations: 75)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_navigation.html.erb (Duration: 0.2ms | Allocations: 207)
+  Rendered layouts/_messages.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3835)
+Completed 200 OK in 15ms (Views: 4.8ms | ActiveRecord: 0.0ms | Allocations: 4289)
+
+
