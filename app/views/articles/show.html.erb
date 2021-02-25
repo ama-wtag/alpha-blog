@@ -1,0 +1,39 @@
+<h2 class = "text-center mt-4"><%= @article.title %></h2>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+      <div class="card shadow mb-5 bg-white rounded">
+        <div class="card-header text-center fst-italic">
+          by <%= @article.user.username.capitalize %>
+          <%= link_to gravatar_for(@article.user , size: 150) , user_path(@article.user.id) , method: :get %>
+          <% if @article.categories.any? %>
+            <div class="mt-2">
+              <%= render @article.categories %>
+            </div>
+          <% end %>
+        </div>
+        <div class="card-body">
+          <div class="card-text text-center">
+            <%= simple_format(@article.description) %>
+          </div>
+          <div class="text-center">
+            <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
+              <button type="button" class="btn btn-outline-primary">
+                <%= link_to "EDIT" , edit_article_path(@article.id) , class: "text-primary" , method: :get %>
+              </button>
+              <button type="button" class="btn btn-outline-danger">
+                <%= link_to "DELETE" , article_path(@article.id) , class: "text-danger" , method: :delete %>
+              </button>
+            <% end %>  
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <small>
+            edited <%= time_ago_in_words(@article.created_at) %> ago ,
+            updated <%= time_ago_in_words(@article.updated_at) %> ago
+          </small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

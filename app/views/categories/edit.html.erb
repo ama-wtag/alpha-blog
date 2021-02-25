@@ -1,0 +1,12 @@
+<h1 class = "text-center mt-4">Edit Category</h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= render "form" %>
+      <div class="text-center mt-3">
+        <%= link_to "[ Cancel and return To The category ]" , category_path(@category.id) , class: "text-success" , method: :get %>
+      </div>
+    </div>
+  </div>
+</div>
